@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-const BASE_URL = 'https://ilovefedor.store/';
+const BASE_URL = 'https://ilovedaniyal.click';
 
 const $api = axios.create({
   baseURL: BASE_URL,

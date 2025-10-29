@@ -93,10 +93,10 @@ const EmployeeAnalytics = () => {
       <main className='mb-10 grid grid-cols-1 gap-5 px-4 sm:grid-cols-2 lg:grid-cols-4'>
         {profitList?.map((profit: any) => (
           <EmployeeCard
-            key={profit.id}
-            title={profit.full_name}
+            key={profit?.id}
+            title={profit?.full_name}
             avatar={''}
-            money={profit.total_profit}
+            money={profit?.total_profit}
             info={''}
           />
         ))}
