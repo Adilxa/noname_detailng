@@ -422,6 +422,7 @@ const NewWashingBtn = () => {
             client_name: orderDetails.client_name,
             queue_position: orderDetails.queue_position,
             status: orderDetails.status,
+            code_order: orderDetails.code_order,
           }}
         />
       )}
