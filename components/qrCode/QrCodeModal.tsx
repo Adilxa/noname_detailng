@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import { Copy } from 'lucide-react';
 import { QRCodeSVG } from 'qrcode.react';
 import React from 'react';
@@ -22,6 +23,7 @@ interface QrCodeModalProps {
     client_name: string;
     queue_position: number;
     status: string;
+    code_order: string;
   };
 }
 
@@ -44,8 +46,9 @@ const QrCodeModal: React.FC<QrCodeModalProps> = ({
   const websocketId = extractWebsocketId(websocketUrl);
 
   // Create the tracking URL using a path parameter (most reliable with QR codes)
+  const token = Cookies.get('access_token');
   console.log(websocketId);
-  const trackingUrl = `https://unaa-tracking.vercel.app/tracking/track/${websocketId}`;
+  const trackingUrl = `https://octo-mobile.vercel.app/tracking/track/${orderDetails?.code_order}?token=${token}&domain=ilovefedor.store`;
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(trackingUrl);

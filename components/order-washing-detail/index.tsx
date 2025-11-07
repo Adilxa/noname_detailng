@@ -1,6 +1,7 @@
 import $api from '@/api/http';
 import { useQueryClient } from '@tanstack/react-query';
 import dayjs from 'dayjs';
+import Cookies from 'js-cookie';
 import { Ban, Check, CheckCheck, CirclePlay, Copy, Printer } from 'lucide-react';
 import { useSearchParams } from 'next/navigation';
 import { QRCodeSVG } from 'qrcode.react';
@@ -92,9 +93,10 @@ const WashingOrderDetailsDialog: React.FC<WashingOrderDetailsDialogProps> = ({
 
   const data = detailedData || orderData;
   const isInProgress = tab === 'inprogress';
+  const token = Cookies.get('access_token');
 
   // Generate QR code URL
-  const trackingUrl = `https://unaa-tracking.vercel.app/tracking/track/${data.code_order}`;
+  const trackingUrl = `https://octo-mobile.vercel.app/tracking/track/${data?.code_order}?token=${token}&domain=ilovefedor.store`;
 
   const onStart = async (id: number) => {
     try {
