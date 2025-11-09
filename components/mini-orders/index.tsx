@@ -41,7 +41,7 @@ interface MiniOrdersListProps {
 }
 
 const fetchCategories = async (): Promise<any> => {
-  const res = await $api.get('/employee/master-employees/ ');
+  const res = await $api.get('/employee/master-employees/');
   return res.data;
 };
 
